@@ -1,0 +1,16 @@
+def elevadorLotado(paradas, capacidade):
+   energiaGasta = 0 
+   while paradas:
+      carga = paradas[-capacidade:]
+      energiaGasta += 2*max(carga) 
+      paradas = paradas[:-capacidade]
+
+   return energiaGasta
+testes = int(input("Numero de testes :"))
+for _ in range(testes):
+    NCM = input().split()
+    capacidade = int(NCM[1])
+    destinhos = list(map(int,input().split()))
+    destinhos.sort()   
+    s = elevadorLotado(destinhos, capacidade)
+    print(s)
